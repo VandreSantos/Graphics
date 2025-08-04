@@ -1,0 +1,4 @@
+{
+  "enableCMake": true,
+  "sourceDirectory": "learnopengl\\the opengl\\dependences\\include\\glfw"
+}
