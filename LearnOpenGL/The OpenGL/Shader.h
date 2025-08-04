@@ -38,7 +38,7 @@ public:
 		}
 		catch (std::ifstream::failure e)
 		{
-			std::cout << "ERRO_AO_CARREGAR_ARQUIVO!";
+			std::cout << "ERRO_AO_CARREGAR_ARQUIVO!\n";
 		}
 		const char* vertexCode = vString.c_str();	//	Armazena o Vertex Shader como const char*
 		const char* fragmentCode = fString.c_str(); //	Armazena o Fragment Shader como const char*

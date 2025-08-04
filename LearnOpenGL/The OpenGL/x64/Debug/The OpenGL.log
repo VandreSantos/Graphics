@@ -1,23 +1,23 @@
 ﻿  main.cpp
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(214,35): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(214,35): warning C4244:         with
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(214,35): warning C4244:         [
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(214,35): warning C4244:             T=float
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(214,35): warning C4244:         ]
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(215,35): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(215,35): warning C4244:         with
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(215,35): warning C4244:         [
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(215,35): warning C4244:             T=float
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(215,35): warning C4244:         ]
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(245,45): warning C4459: declaration of 'width' hides global declaration
-      C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(16,15):
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(214,35): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(214,35): warning C4244:         with
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(214,35): warning C4244:         [
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(214,35): warning C4244:             T=float
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(214,35): warning C4244:         ]
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(215,35): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(215,35): warning C4244:         with
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(215,35): warning C4244:         [
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(215,35): warning C4244:             T=float
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(215,35): warning C4244:         ]
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(245,45): warning C4459: declaration of 'width' hides global declaration
+      C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(16,15):
       see declaration of 'width'
   
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(245,56): warning C4459: declaration of 'height' hides global declaration
-      C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(17,15):
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(245,56): warning C4459: declaration of 'height' hides global declaration
+      C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(17,15):
       see declaration of 'height'
   
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(276,48): warning C4100: 'xoffset': unreferenced parameter
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(276,33): warning C4100: 'window': unreferenced parameter
-C:\Users\vandr\source\repos\LearnOpenGL\The OpenGL\main.cpp(290,33): warning C4100: 'window': unreferenced parameter
-  The OpenGL.vcxproj -> C:\Users\vandr\source\repos\LearnOpenGL\x64\Debug\The OpenGL.exe
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(276,48): warning C4100: 'xoffset': unreferenced parameter
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(276,33): warning C4100: 'window': unreferenced parameter
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\The OpenGL\main.cpp(290,33): warning C4100: 'window': unreferenced parameter
+  The OpenGL.vcxproj -> C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnOpenGL\x64\Debug\The OpenGL.exe

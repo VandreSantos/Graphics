@@ -62,8 +62,8 @@ int main()
 		return -1;
 	}
 
-	Shader objectShader("C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Shaders\\ObjectShaderV.txt", "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Shaders\\ObjectShaderF.txt");
-	Shader lightShader("C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Shaders\\LightShaderV.txt", "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Shaders\\LightShaderF.txt");
+	Shader objectShader("C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Shaders\\ObjectShaderV.txt", "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Shaders\\ObjectShaderF.txt");
+	Shader lightShader("C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Shaders\\LightShaderV.txt", "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Shaders\\LightShaderF.txt");
 
 
 	float vertices[] =
@@ -189,7 +189,7 @@ int main()
 
 		objectShader.setVec3("material.ambientColor", glm::vec3(1.0f, 0.5f, 0.31f));
 		objectShader.setVec3("material.diffuseColor", glm::vec3(1.0f, 0.5f, 0.31f));
-		objectShader.setVec3("material.specularColor", glm::vec3(0.633,	0.727811,	0.633));
+		objectShader.setVec3("material.specularColor", glm::vec3(0.5f, 0.5f, 0.5f));
 		objectShader.setFloat("material.shininess", 32.0f);
 		//	VIEW MATRIX
 		glm::mat4 view{ glm::mat4(1.0f) };

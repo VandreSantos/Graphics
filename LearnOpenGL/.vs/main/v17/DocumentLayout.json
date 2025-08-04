@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\",
+  "WorkspaceRootPath": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|solutionrelative:The OpenGL\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|solutionrelative:The OpenGL\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|solutionrelative:The OpenGL\\Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Textures.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Textures.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EAC28291-EBA9-4567-800C-E071B1C79400}|The OpenGL\\The OpenGL.vcxproj|solutionrelative:The OpenGL\\Textures.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -40,11 +40,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\main.cpp",
               "RelativeDocumentMoniker": "The OpenGL\\main.cpp",
-              "ToolTip": "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\main.cpp",
+              "ToolTip": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\main.cpp",
               "RelativeToolTip": "The OpenGL\\main.cpp",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAowLgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAAANMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-29T13:13:09.011Z",
               "EditorCaption": ""
@@ -53,33 +53,35 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Camera.h",
-              "DocumentMoniker": "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Camera.h",
+              "DocumentMoniker": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Camera.h",
               "RelativeDocumentMoniker": "The OpenGL\\Camera.h",
-              "ToolTip": "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Camera.h",
+              "ToolTip": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Camera.h",
               "RelativeToolTip": "The OpenGL\\Camera.h",
-              "ViewState": "AgIAADIAAAAAAAAAAAAAAEIAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAEIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-07-22T17:50:17.409Z"
+              "WhenOpened": "2025-07-22T17:50:17.409Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Shader.h",
-              "DocumentMoniker": "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Shader.h",
+              "DocumentMoniker": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Shader.h",
               "RelativeDocumentMoniker": "The OpenGL\\Shader.h",
-              "ToolTip": "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Shader.h",
+              "ToolTip": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Shader.h",
               "RelativeToolTip": "The OpenGL\\Shader.h",
-              "ViewState": "AgIAAD4AAAAAAAAAAADwv4wAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAADwvygAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-07-17T21:40:41.325Z"
+              "WhenOpened": "2025-07-17T21:40:41.325Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Textures.h",
-              "DocumentMoniker": "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Textures.h",
+              "DocumentMoniker": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Textures.h",
               "RelativeDocumentMoniker": "The OpenGL\\Textures.h",
-              "ToolTip": "C:\\Users\\vandr\\source\\repos\\LearnOpenGL\\The OpenGL\\Textures.h",
+              "ToolTip": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnOpenGL\\The OpenGL\\Textures.h",
               "RelativeToolTip": "The OpenGL\\Textures.h",
               "ViewState": "AgIAAC8AAAAAAAAAAAAAwD8AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
