@@ -1,0 +1,5 @@
+﻿  Building Custom Rule C:/Users/vandr/OneDrive/Área de Trabalho/glfw-3.4/tests/CMakeLists.txt
+  empty.c
+  tinycthread.c
+  Generating Code...
+  empty.vcxproj -> C:\Users\vandr\OneDrive\Área de Trabalho\glfw-3.4\build\tests\Debug\empty.exe

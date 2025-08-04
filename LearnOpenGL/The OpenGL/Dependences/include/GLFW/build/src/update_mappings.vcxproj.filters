@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\vandr\OneDrive\Área de Trabalho\glfw-3.4\build\CMakeFiles\c628f8adb2fc175e48374c6bf8a0e910\update_mappings.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\vandr\OneDrive\Área de Trabalho\glfw-3.4\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\vandr\OneDrive\Área de Trabalho\glfw-3.4\src\mappings.h.in">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="C:\Users\vandr\OneDrive\Área de Trabalho\glfw-3.4\CMake\GenerateMappings.cmake" />
+    <None Include="C:\Users\vandr\OneDrive\Área de Trabalho\glfw-3.4\build\src\CMakeFiles\update_mappings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C6FBE232-7F1A-39F4-9B7A-F1274709D76A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{C027489E-9EC1-36BB-95E5-AEF73AE24071}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

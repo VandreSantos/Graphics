@@ -1,0 +1,10 @@
+^C:\USERS\VANDR\ONEDRIVE\ÁREA DE TRABALHO\GLFW-3.4\BUILD\CMAKEFILES\0C6749CC9C29B1FEFC8F596140FA37AD\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/vandr/OneDrive/Área de Trabalho/glfw-3.4" "-BC:/Users/vandr/OneDrive/Área de Trabalho/glfw-3.4/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/vandr/OneDrive/Área de Trabalho/glfw-3.4/build/GLFW.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
