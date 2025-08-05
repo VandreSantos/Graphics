@@ -21,7 +21,6 @@ float lastY{ height / 2 };
 float lastFrame{ 0.0f };
 float deltaTime{};
 
-glm::vec3 lightColor{ glm::vec3(1.0f, 1.0f, 1.0f) };
 glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
 
 Camera ourCamera(glm::vec3(0.0f, 1.0f, 3.0f), -20.0f);
@@ -183,7 +182,6 @@ int main()
 		glm::mat4 model{ glm::mat4(1.0f) };
 		objectShader.setMat4("u_model", model);
 
-		objectShader.setVec3("u_light", lightColor);
 		objectShader.setVec3("u_lightPos", lightPos);
 		objectShader.setVec3("u_camPos", ourCamera.cameraPosition);
 
@@ -191,6 +189,12 @@ int main()
 		objectShader.setVec3("material.diffuseColor", glm::vec3(1.0f, 0.5f, 0.31f));
 		objectShader.setVec3("material.specularColor", glm::vec3(0.5f, 0.5f, 0.5f));
 		objectShader.setFloat("material.shininess", 32.0f);
+
+		glm::vec3 dif = glm::vec3(1.0f, 1.0f, 1.0f);
+		objectShader.setVec3("light.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
+		objectShader.setVec3("light.diffuse", dif);
+		objectShader.setVec3("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
+
 		//	VIEW MATRIX
 		glm::mat4 view{ glm::mat4(1.0f) };
 		view = ourCamera.getView();
@@ -211,8 +215,8 @@ int main()
 			╩═╝╩╚═╝╩ ╩ ╩
 		*/
 
-		lightPos.x = cos(glfwGetTime()) * 2.0f;
-		lightPos.z = sin(glfwGetTime()) * 2.0f;;
+		//lightPos.x = cos(glfwGetTime()) * 2.0f;
+		//lightPos.z = sin(glfwGetTime()) * 2.0f;;
 
 		lightShader.use();
 		glBindVertexArray(lightVAO);
@@ -224,7 +228,7 @@ int main()
 		lightShader.setMat4("u_view", view);
 		lightShader.setMat4("u_projection", projection);
 
-		lightShader.setVec3("u_lightColor", lightColor);
+		lightShader.setVec3("lightColor", dif);
 
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
