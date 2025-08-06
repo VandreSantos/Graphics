@@ -22,6 +22,7 @@ float lastFrame{ 0.0f };
 float deltaTime{};
 
 glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
+glm::vec3 lightColor = glm::vec3(1.0f, 1.0f, 1.0f);
 
 Camera ourCamera(glm::vec3(0.0f, 1.0f, 3.0f), -20.0f);
 
@@ -67,48 +68,48 @@ int main()
 
 	float vertices[] =
 	{
-		//	 VERTICES					NORMALS
-		 0.5f,  0.5f, -0.5f,		0.0f, 0.0f, -1.0f,
-		 0.5f, -0.5f, -0.5f,		0.0f, 0.0f, -1.0f,
-		-0.5f, -0.5f, -0.5f,		0.0f, 0.0f, -1.0f,
-		 0.5f,  0.5f, -0.5f,		0.0f, 0.0f, -1.0f,
-		-0.5f,  0.5f, -0.5f,		0.0f, 0.0f, -1.0f,
-		-0.5f, -0.5f, -0.5f,		0.0f, 0.0f, -1.0f,
-									
-		 0.5f,  0.5f,  0.5f,		1.0f, 0.0f, 0.0f,
-		 0.5f, -0.5f,  0.5f,		1.0f, 0.0f, 0.0f,
-		 0.5f, -0.5f, -0.5f,		1.0f, 0.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,		1.0f, 0.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,		1.0f, 0.0f, 0.0f,
-		 0.5f, -0.5f, -0.5f,		1.0f, 0.0f, 0.0f,
-									
-		-0.5f,  0.5f,  0.5f,	   -1.0f, 0.0f, 0.0f,
-		-0.5f, -0.5f,  0.5f,	   -1.0f, 0.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f,	   -1.0f, 0.0f, 0.0f,
-		-0.5f,  0.5f,  0.5f,	   -1.0f, 0.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,	   -1.0f, 0.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f,	   -1.0f, 0.0f, 0.0f,
-		   							
-		 0.5f,  0.5f,  0.5f,		0.0f, 1.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,		0.0f, 1.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,		0.0f, 1.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,		0.0f, 1.0f, 0.0f,
-		-0.5f,  0.5f,  0.5f,		0.0f, 1.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,		0.0f, 1.0f, 0.0f,
-		   							
-		 0.5f, -0.5f,  0.5f,		0.0f, -1.0f, 0.0f,
-		 0.5f, -0.5f, -0.5f,		0.0f, -1.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f,		0.0f, -1.0f, 0.0f,
-		 0.5f, -0.5f,  0.5f,		0.0f, -1.0f, 0.0f,
-		-0.5f, -0.5f,  0.5f,		0.0f, -1.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f,		0.0f, -1.0f, 0.0f,
-		   							
-		 0.5f,  0.5f,  0.5f,		0.0f, 0.0f, 1.0f,
-		 0.5f, -0.5f,  0.5f,		0.0f, 0.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f,		0.0f, 0.0f, 1.0f,
-		 0.5f,  0.5f,  0.5f,		0.0f, 0.0f, 1.0f,
-		-0.5f,  0.5f,  0.5f,		0.0f, 0.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f,		0.0f, 0.0f, 1.0f
+		//	 VERTICES					NORMALS				  TEXTURE
+		 0.5f,  0.5f, -0.5f,		0.0f, 0.0f, -1.0f,		1.0f, 1.0f,
+		 0.5f, -0.5f, -0.5f,		0.0f, 0.0f, -1.0f,		1.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f,		0.0f, 0.0f, -1.0f,		0.0f, 0.0f,
+		 0.5f,  0.5f, -0.5f,		0.0f, 0.0f, -1.0f,		1.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,		0.0f, 0.0f, -1.0f,		0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,		0.0f, 0.0f, -1.0f,		0.0f, 0.0f,
+															
+		 0.5f,  0.5f,  0.5f,		1.0f, 0.0f, 0.0f,		1.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f,		1.0f, 0.0f, 0.0f,		1.0f, 0.0f,
+		 0.5f, -0.5f, -0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,
+		 0.5f,  0.5f,  0.5f,		1.0f, 0.0f, 0.0f,		1.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 1.0f,
+		 0.5f, -0.5f, -0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,
+															
+		-0.5f,  0.5f,  0.5f,	   -1.0f, 0.0f, 0.0f,		1.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,	   -1.0f, 0.0f, 0.0f,		1.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f,	   -1.0f, 0.0f, 0.0f,		0.0f, 0.0f,
+		-0.5f,  0.5f,  0.5f,	   -1.0f, 0.0f, 0.0f,		1.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,	   -1.0f, 0.0f, 0.0f,		0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,	   -1.0f, 0.0f, 0.0f,		0.0f, 0.0f,
+		   													
+		 0.5f,  0.5f,  0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,
+		-0.5f,  0.5f, -0.5f,		0.0f, 1.0f, 0.0f,		0.0f, 0.0f,
+		 0.5f,  0.5f,  0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,		0.0f, 1.0f, 0.0f,		0.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,		0.0f, 1.0f, 0.0f,		0.0f, 0.0f,
+		   													
+		 0.5f, -0.5f,  0.5f,		0.0f, -1.0f, 0.0f,		1.0f, 1.0f,
+		 0.5f, -0.5f, -0.5f,		0.0f, -1.0f, 0.0f,		1.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f,		0.0f, -1.0f, 0.0f,		0.0f, 0.0f,
+		 0.5f, -0.5f,  0.5f,		0.0f, -1.0f, 0.0f,		1.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,		0.0f, -1.0f, 0.0f,		0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,		0.0f, -1.0f, 0.0f,		0.0f, 0.0f,
+		   													
+		 0.5f,  0.5f,  0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 0.0f,
+		-0.5f, -0.5f,  0.5f,		0.0f, 0.0f, 1.0f,		0.0f, 0.0f,
+		 0.5f,  0.5f,  0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,		0.0f, 0.0f, 1.0f,		0.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,		0.0f, 0.0f, 1.0f,		0.0f, 0.0f
 	};
 
 	/*
@@ -126,11 +127,14 @@ int main()
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
+
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glEnableVertexAttribArray(2);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
@@ -146,11 +150,16 @@ int main()
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+
+	Textures ourTexture;
+	unsigned int conteiner{};
+	ourTexture.genTextureRGBA(conteiner, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\container2.png");
+
 
 	/*
 		╦  ╔═╗╔═╗╔═╗
@@ -185,14 +194,12 @@ int main()
 		objectShader.setVec3("u_lightPos", lightPos);
 		objectShader.setVec3("u_camPos", ourCamera.cameraPosition);
 
-		objectShader.setVec3("material.ambientColor", glm::vec3(1.0f, 0.5f, 0.31f));
-		objectShader.setVec3("material.diffuseColor", glm::vec3(1.0f, 0.5f, 0.31f));
-		objectShader.setVec3("material.specularColor", glm::vec3(0.5f, 0.5f, 0.5f));
+		objectShader.setInt("material.diffuseColor", 0);
+		objectShader.setVec3("material.specularColor", glm::vec3(0.5f, 0.5f, 0.5f) * lightColor);
 		objectShader.setFloat("material.shininess", 32.0f);
 
-		glm::vec3 dif = glm::vec3(1.0f, 1.0f, 1.0f);
 		objectShader.setVec3("light.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
-		objectShader.setVec3("light.diffuse", dif);
+		objectShader.setVec3("light.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
 		objectShader.setVec3("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
 
 		//	VIEW MATRIX
@@ -206,6 +213,8 @@ int main()
 		projection = glm::perspective(glm::radians(ourCamera.zoom), fWidth / fHeight, 0.1f, 100.0f);
 		objectShader.setMat4("u_projection", projection);
 
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, conteiner);
 		glBindVertexArray(objectVAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
@@ -215,8 +224,8 @@ int main()
 			╩═╝╩╚═╝╩ ╩ ╩
 		*/
 
-		//lightPos.x = cos(glfwGetTime()) * 2.0f;
-		//lightPos.z = sin(glfwGetTime()) * 2.0f;;
+		lightPos.x = cos(glfwGetTime()) * 2.0f;
+		lightPos.z = sin(glfwGetTime()) * 2.0f;;
 
 		lightShader.use();
 		glBindVertexArray(lightVAO);
@@ -227,8 +236,7 @@ int main()
 		lightShader.setMat4("u_model", lModel);
 		lightShader.setMat4("u_view", view);
 		lightShader.setMat4("u_projection", projection);
-
-		lightShader.setVec3("lightColor", dif);
+		lightShader.setVec3("u_lightColor", lightColor);
 
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
