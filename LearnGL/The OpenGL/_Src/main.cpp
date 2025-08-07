@@ -157,8 +157,10 @@ int main()
 	glBindVertexArray(0);
 
 	Textures ourTexture;
-	unsigned int conteiner{};
-	ourTexture.genTextureRGBA(conteiner, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\container2.png");
+	unsigned int containerDiffuse{};
+	unsigned int containerSpecular{};
+	ourTexture.genTextureRGBA(containerDiffuse, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\diffuse_map.png");
+	ourTexture.genTextureRGBA(containerSpecular, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\specular_map2.png");
 
 
 	/*
@@ -193,10 +195,11 @@ int main()
 
 		objectShader.setVec3("u_lightPos", lightPos);
 		objectShader.setVec3("u_camPos", ourCamera.cameraPosition);
+		objectShader.setVec3("u_lightColor", lightColor);
 
 		objectShader.setInt("material.diffuseColor", 0);
-		objectShader.setVec3("material.specularColor", glm::vec3(0.5f, 0.5f, 0.5f) * lightColor);
-		objectShader.setFloat("material.shininess", 32.0f);
+		objectShader.setInt("material.specularColor", 1);
+		objectShader.setFloat("material.shininess", 64.0f);
 
 		objectShader.setVec3("light.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
 		objectShader.setVec3("light.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
@@ -214,7 +217,9 @@ int main()
 		objectShader.setMat4("u_projection", projection);
 
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, conteiner);
+		glBindTexture(GL_TEXTURE_2D, containerDiffuse);
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, containerSpecular);
 		glBindVertexArray(objectVAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
@@ -225,7 +230,7 @@ int main()
 		*/
 
 		lightPos.x = cos(glfwGetTime()) * 2.0f;
-		lightPos.z = sin(glfwGetTime()) * 2.0f;;
+		lightPos.z = sin(glfwGetTime()) * 2.0f;
 
 		lightShader.use();
 		glBindVertexArray(lightVAO);
