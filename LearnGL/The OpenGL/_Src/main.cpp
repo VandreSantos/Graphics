@@ -66,6 +66,19 @@ int main()
 	Shader lightShader("C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Shaders\\LightShaderV.txt", "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Shaders\\LightShaderF.txt");
 
 
+	glm::vec3 cubePositions[] = {
+		glm::vec3(0.0f,  0.0f,  0.0f),
+		glm::vec3(2.0f,  5.0f, -15.0f),
+		glm::vec3(-1.5f, -2.2f, -2.5f),
+		glm::vec3(-3.8f, -2.0f, -12.3f),
+		glm::vec3(2.4f, -0.4f, -3.5f),
+		glm::vec3(-1.7f,  3.0f, -7.5f),
+		glm::vec3(1.3f, -2.0f, -2.5f),
+		glm::vec3(1.5f,  2.0f, -2.5f),
+		glm::vec3(1.5f,  0.2f, -1.5f),
+		glm::vec3(-1.3f,  1.0f, -1.5f)
+	};
+
 	float vertices[] =
 	{
 		//	 VERTICES					NORMALS				  TEXTURE
@@ -162,7 +175,6 @@ int main()
 	ourTexture.genTextureRGBA(containerDiffuse, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\diffuse_map.png");
 	ourTexture.genTextureRGBA(containerSpecular, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\specular_map2.png");
 
-
 	/*
 		╦  ╔═╗╔═╗╔═╗
 		║  ║ ║║ ║╠═╝
@@ -189,18 +201,14 @@ int main()
 		*/
 		objectShader.use();
 
-		//	MODEL MATRIX
-		glm::mat4 model{ glm::mat4(1.0f) };
-		objectShader.setMat4("u_model", model);
-
-		objectShader.setVec3("u_lightPos", lightPos);
 		objectShader.setVec3("u_camPos", ourCamera.cameraPosition);
 		objectShader.setVec3("u_lightColor", lightColor);
 
 		objectShader.setInt("material.diffuseColor", 0);
 		objectShader.setInt("material.specularColor", 1);
-		objectShader.setFloat("material.shininess", 64.0f);
+		objectShader.setFloat("material.shininess", 32.0f);
 
+		objectShader.setVec3("light.direction", glm::vec3(-0.2f, -1.0f, -0.3f));
 		objectShader.setVec3("light.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
 		objectShader.setVec3("light.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
 		objectShader.setVec3("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
@@ -220,18 +228,24 @@ int main()
 		glBindTexture(GL_TEXTURE_2D, containerDiffuse);
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, containerSpecular);
+
+		//	MODEL MATRIX
 		glBindVertexArray(objectVAO);
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		for (int i = 0; i < 10; i++)
+		{
+			glm::mat4 model{ glm::mat4(1.0f) };
+			model = glm::translate(model, cubePositions[i]);
+			float rotate = 20.0f * i;
+			model = glm::rotate(model, glm::radians(rotate), cubePositions[i]);
+			objectShader.setMat4("u_model", model);
+			glDrawArrays(GL_TRIANGLES, 0, 36);
+		}
 
 		/*
 			╦  ╦╔═╗╦ ╦╔╦╗
 			║  ║║ ╦╠═╣ ║
 			╩═╝╩╚═╝╩ ╩ ╩
 		*/
-
-		lightPos.x = cos(glfwGetTime()) * 2.0f;
-		lightPos.z = sin(glfwGetTime()) * 2.0f;
-
 		lightShader.use();
 		glBindVertexArray(lightVAO);
 
