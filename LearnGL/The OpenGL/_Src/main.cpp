@@ -28,13 +28,6 @@ Camera ourCamera(glm::vec3(0.0f, 1.0f, 3.0f), -20.0f);
 
 int main()
 {
-	#pragma region Init
-	/*
-		DEPOIS DE INICIALIZAR O OPENGL PARA USO, DEFINIMOS ALGUMAS CONFIGURAÇÕES DE INICIALIZAÇÃO, 
-		SENDO ELAS A VERSÃO QUE VAMOS USAR DO OPENGL (3.3) E O PERFIL DO OPENGL COMO SENDO CORE 
-		(PERFIL QUE REMOVE ALGUMAS FINCIONALIDADES ANTIGAS).
-	*/
-	#pragma endregion
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -206,10 +199,14 @@ int main()
 
 		objectShader.setInt("material.diffuseColor", 0);
 		objectShader.setInt("material.specularColor", 1);
-		objectShader.setFloat("material.shininess", 32.0f);
+		objectShader.setFloat("material.shininess", 64.0f);
 
-		objectShader.setVec3("light.direction", glm::vec3(-0.2f, -1.0f, -0.3f));
-		objectShader.setVec3("light.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
+		objectShader.setFloat("light.constant", 1.0f);
+		objectShader.setFloat("light.linear", 0.09f);
+		objectShader.setFloat("light.quadratic", 0.032f);
+
+		objectShader.setVec3("light.position", lightPos);
+		objectShader.setVec3("light.ambient", glm::vec3(0.3f, 0.3f, 0.3f));
 		objectShader.setVec3("light.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
 		objectShader.setVec3("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
 
@@ -310,13 +307,6 @@ void scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 	ourCamera.setFov(fyoffset);
 }
 
-#pragma region cursor
-/*
-	A função abaixo tem como objetivo a definição das variaveis offset, que consiste na diferença
-	da posição inical do mouse para a posição final no intervalo de um quadro, que posteriormente,
-	se multiplicarmos por um fator sensibilidade, podemos almentar a velocidade da movimentação da camera.
-*/
-#pragma endregion
 bool firstMouse = true;
 void cursorCallback(GLFWwindow* window, double xpos, double ypos)
 {
