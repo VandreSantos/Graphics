@@ -65,7 +65,7 @@ public:
 		{
 			cameraPosition += camSpeed * sideMovement;
 		}
-		cameraPosition.y = fixedY;
+		//cameraPosition.y = fixedY;
 	}
 
 	void setDirection(float xoffset, float yoffset, bool restrainPitch = true)
