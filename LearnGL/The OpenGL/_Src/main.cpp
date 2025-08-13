@@ -202,8 +202,8 @@ int main()
 		objectShader.setFloat("material.shininess", 64.0f);
 
 		objectShader.setFloat("light.constant", 1.0f);
-		objectShader.setFloat("light.linear", 0.09f);
-		objectShader.setFloat("light.quadratic", 0.032f);
+		objectShader.setFloat("light.linear", 0.22f);
+		objectShader.setFloat("light.quadratic", 0.20f);
 
 		objectShader.setVec3("light.position", lightPos);
 		objectShader.setVec3("light.ambient", glm::vec3(0.3f, 0.3f, 0.3f));
@@ -233,7 +233,7 @@ int main()
 			glm::mat4 model{ glm::mat4(1.0f) };
 			model = glm::translate(model, cubePositions[i]);
 			float rotate = 20.0f * i;
-			model = glm::rotate(model, glm::radians(rotate), cubePositions[i]);
+			//model = glm::rotate(model, glm::radians(rotate), cubePositions[i]);
 			objectShader.setMat4("u_model", model);
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 		}
@@ -298,6 +298,23 @@ void userInputs(GLFWwindow* window)
 	else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
 	{
 		ourCamera.setMovement(LEFT, deltaTime);
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+	{
+		lightPos.z -= 0.01f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+	{
+		lightPos.z += 0.01f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+	{
+		lightPos.x += 0.01f;
+	}
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+	{
+		lightPos.x -= 0.01f;
 	}
 }
 
