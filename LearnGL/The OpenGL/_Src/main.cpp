@@ -8,6 +8,18 @@
 #include "Textures.h"
 #include "Camera.h"
 
+/*
+	 █▀▀█ █▀▀▀ █▀▀ █▀▀▄ █▀▀▄ █▀▀█
+	 █▄▄█ █░▀█ █▀▀ █░░█ █░░█ █▄▄█
+	 █░▒█ ▀▀▀▀ ▀▀▀ ▀░░▀ ▀▀▀░ ▀░░▀
+	 
+	 -	OPERADOR BIT A BIT
+	 -	INSTRUÇÕES CONDICIONAIS
+	 -	PRODUTO ESCALAR
+	 -	ATENUAÇÃO
+	 -	REFLEXÃO
+*/
+
 void resizeCallback(GLFWwindow* window, int width, int height);
 void userInputs(GLFWwindow* window);
 void scrollCallback(GLFWwindow* window, double xoffset, double yoffset);

@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LearnGL"
+    "\\LearnGL",
+    "\\LearnGL\\The OpenGL",
+    "\\LearnGL\\The OpenGL\\_Src"
   ],
-  "SelectedNode": "\\LearnGL\\main.sln",
+  "SelectedNode": "\\LearnGL\\The OpenGL\\_Src\\main.cpp",
   "PreviewInSolutionExplorer": false
 }

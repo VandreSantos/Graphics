@@ -33,6 +33,7 @@ uniform Light light;
 
 void main()
 {
+	//	ATENUAÇÃO
 	float distance = length(FragPos - light.position);
 	float attenuation = 1.0 / (light.constant + light.linear * distance + light.quadratic * (distance * distance));
 	//float attenuation = 1.0 / (light.constant + light.linear * distance);
