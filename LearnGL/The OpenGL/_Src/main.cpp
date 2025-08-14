@@ -177,8 +177,8 @@ int main()
 	Textures ourTexture;
 	unsigned int containerDiffuse{};
 	unsigned int containerSpecular{};
-	ourTexture.genTextureRGBA(containerDiffuse, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\diffuse_map.png");
-	ourTexture.genTextureRGBA(containerSpecular, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\specular_map2.png");
+	ourTexture.genTextureRGBA(containerDiffuse, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\diffuse.png");
+	ourTexture.genTextureRGB(containerSpecular, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\specular.jpg");
 
 	/*
 		╦  ╔═╗╔═╗╔═╗
@@ -214,8 +214,8 @@ int main()
 		objectShader.setFloat("material.shininess", 64.0f);
 
 		objectShader.setFloat("light.constant", 1.0f);
-		objectShader.setFloat("light.linear", 0.22f);
-		objectShader.setFloat("light.quadratic", 0.20f);
+		objectShader.setFloat("light.linear", 0.09f);
+		objectShader.setFloat("light.quadratic", 0.032f);
 
 		objectShader.setVec3("light.position", lightPos);
 		objectShader.setVec3("light.ambient", glm::vec3(0.3f, 0.3f, 0.3f));
@@ -314,19 +314,19 @@ void userInputs(GLFWwindow* window)
 
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 	{
-		lightPos.z -= 0.01f;
+		lightPos.z -= 0.001f;
 	}
 	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
 	{
-		lightPos.z += 0.01f;
+		lightPos.z += 0.001f;
 	}
 	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
 	{
-		lightPos.x += 0.01f;
+		lightPos.x += 0.001f;
 	}
 	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
 	{
-		lightPos.x -= 0.01f;
+		lightPos.x -= 0.001f;
 	}
 }
 
