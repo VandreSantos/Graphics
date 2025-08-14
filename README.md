@@ -16,5 +16,5 @@ Scroll | Fov
 Mouse | Câmera
 Esc | Sair
 
-https://github.com/user-attachments/assets/cb1c6e78-a34c-458a-a490-d27e938e1bb2
+https://github.com/user-attachments/assets/8cc3b025-27a2-4072-8496-fc9f57bca585
 
