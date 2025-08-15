@@ -42,9 +42,9 @@
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Src\\main.cpp",
               "RelativeDocumentMoniker": "The OpenGL\\_Src\\main.cpp",
-              "ToolTip": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Src\\main.cpp*",
-              "RelativeToolTip": "The OpenGL\\_Src\\main.cpp*",
-              "ViewState": "AgIAAMgAAAAAAAAAAAAgwNkAAAAwAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Src\\main.cpp",
+              "RelativeToolTip": "The OpenGL\\_Src\\main.cpp",
+              "ViewState": "AgIAADUBAAAAAAAAAAAAAD4BAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-08-05T23:28:08.873Z",
               "EditorCaption": ""
@@ -84,6 +84,16 @@
               "ViewState": "AgIAAEsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-08-06T00:14:20.02Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 349,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             }
           ]
         }

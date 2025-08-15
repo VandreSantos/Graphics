@@ -16,7 +16,7 @@
 	 -	OPERADOR BIT A BIT
 	 -	INSTRUÇÕES CONDICIONAIS
 	 -	PRODUTO ESCALAR
-	 -	ATENUAÇÃO
+	 -	ATENUAÇÃO -> COEFICIENTE QUADRATICO
 	 -	REFLEXÃO
 */
 
@@ -208,11 +208,11 @@ int main()
 
 		objectShader.setVec3("u_camPos", ourCamera.cameraPosition);
 		objectShader.setVec3("u_lightColor", lightColor);
-
+		
 		objectShader.setInt("material.diffuseColor", 0);
 		objectShader.setInt("material.specularColor", 1);
 		objectShader.setFloat("material.shininess", 64.0f);
-
+		
 		objectShader.setFloat("light.constant", 1.0f);
 		objectShader.setFloat("light.linear", 0.09f);
 		objectShader.setFloat("light.quadratic", 0.032f);
@@ -314,19 +314,19 @@ void userInputs(GLFWwindow* window)
 
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 	{
-		lightPos.z -= 0.001f;
+		lightPos.z -= 0.01f;
 	}
 	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
 	{
-		lightPos.z += 0.001f;
+		lightPos.z += 0.01f;
 	}
 	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
 	{
-		lightPos.x += 0.001f;
+		lightPos.x += 0.01f;
 	}
 	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
 	{
-		lightPos.x -= 0.001f;
+		lightPos.x -= 0.01f;
 	}
 }
 
