@@ -16,7 +16,6 @@
 	 -	OPERADOR BIT A BIT
 	 -	INSTRUÇÕES CONDICIONAIS
 	 -	PRODUTO ESCALAR
-	 -	ATENUAÇÃO -> COEFICIENTE QUADRATICO
 	 -	REFLEXÃO
 */
 
@@ -312,21 +311,22 @@ void userInputs(GLFWwindow* window)
 		ourCamera.setMovement(LEFT, deltaTime);
 	}
 
+	float lightSpeed{ 0.01f };
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 	{
-		lightPos.z -= 0.01f;
+		lightPos.z -= lightSpeed;
 	}
 	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
 	{
-		lightPos.z += 0.01f;
+		lightPos.z += lightSpeed;
 	}
 	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
 	{
-		lightPos.x += 0.01f;
+		lightPos.x += lightSpeed;
 	}
 	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
 	{
-		lightPos.x -= 0.01f;
+		lightPos.x -= lightSpeed;
 	}
 }
 

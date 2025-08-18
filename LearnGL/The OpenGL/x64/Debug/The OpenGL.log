@@ -8,7 +8,7 @@ C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnGL\The OpenGL\
       C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnGL\The OpenGL\_Src\main.cpp(29,15):
       see declaration of 'height'
   
-C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnGL\The OpenGL\_Src\main.cpp(333,48): warning C4100: 'xoffset': unreferenced parameter
-C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnGL\The OpenGL\_Src\main.cpp(333,33): warning C4100: 'window': unreferenced parameter
-C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnGL\The OpenGL\_Src\main.cpp(340,33): warning C4100: 'window': unreferenced parameter
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnGL\The OpenGL\_Src\main.cpp(334,48): warning C4100: 'xoffset': unreferenced parameter
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnGL\The OpenGL\_Src\main.cpp(334,33): warning C4100: 'window': unreferenced parameter
+C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnGL\The OpenGL\_Src\main.cpp(341,33): warning C4100: 'window': unreferenced parameter
   The OpenGL.vcxproj -> C:\Users\vandr\OneDrive\Documentos\MeusRepositorios\Graphics\LearnGL\x64\Debug\The OpenGL.exe
