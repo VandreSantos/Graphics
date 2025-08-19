@@ -12,9 +12,7 @@
 	 █▀▀█ █▀▀▀ █▀▀ █▀▀▄ █▀▀▄ █▀▀█
 	 █▄▄█ █░▀█ █▀▀ █░░█ █░░█ █▄▄█
 	 █░▒█ ▀▀▀▀ ▀▀▀ ▀░░▀ ▀▀▀░ ▀░░▀
-	 
-	 -	OPERADOR BIT A BIT
-	 -	INSTRUÇÕES CONDICIONAIS
+
 	 -	PRODUTO ESCALAR
 	 -	REFLEXÃO
 */
