@@ -214,8 +214,11 @@ int main()
 		objectShader.setFloat("light.linear", 0.09f);
 		objectShader.setFloat("light.quadratic", 0.032f);
 
-		objectShader.setVec3("light.position", lightPos);
-		objectShader.setVec3("light.ambient", glm::vec3(0.3f, 0.3f, 0.3f));
+		objectShader.setVec3("light.position", ourCamera.cameraPosition);
+		objectShader.setVec3("light.direction", ourCamera.cameraDirection);
+		objectShader.setFloat("light.cutoff", glm::cos(glm::radians(12.5f)));
+
+		objectShader.setVec3("light.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
 		objectShader.setVec3("light.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
 		objectShader.setVec3("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
 
@@ -263,7 +266,7 @@ int main()
 		lightShader.setMat4("u_projection", projection);
 		lightShader.setVec3("u_lightColor", lightColor);
 
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		//glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//	Procedimentos da janela
 		glfwSwapBuffers(window);
