@@ -21,6 +21,7 @@ void resizeCallback(GLFWwindow* window, int width, int height);
 void userInputs(GLFWwindow* window);
 void scrollCallback(GLFWwindow* window, double xoffset, double yoffset);
 void cursorCallback(GLFWwindow* window, double xpos, double ypos);
+void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 constexpr int width{ 800 };
 constexpr int height{ 600 };
@@ -32,6 +33,8 @@ float deltaTime{};
 
 glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
 glm::vec3 lightColor = glm::vec3(1.0f, 1.0f, 1.0f);
+
+bool isOn{true};
 
 Camera ourCamera(glm::vec3(0.0f, 1.0f, 3.0f), -20.0f);
 
@@ -56,6 +59,7 @@ int main()
 	glfwSetScrollCallback(window, scrollCallback);
 	glfwSetCursorPosCallback(window, cursorCallback);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetKeyCallback(window, keyCallback);
 
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -174,8 +178,8 @@ int main()
 	Textures ourTexture;
 	unsigned int containerDiffuse{};
 	unsigned int containerSpecular{};
-	ourTexture.genTextureRGBA(containerDiffuse, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\diffuse.png");
-	ourTexture.genTextureRGB(containerSpecular, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\specular.jpg");
+	ourTexture.genTextureRGBA(containerDiffuse, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\diffuse_map.png");
+	ourTexture.genTextureRGBA(containerSpecular, "C:\\Users\\vandr\\OneDrive\\Documentos\\MeusRepositorios\\Graphics\\LearnGL\\The OpenGL\\_Textures\\specular_map2.png");
 
 	/*
 		╦  ╔═╗╔═╗╔═╗
@@ -211,16 +215,19 @@ int main()
 		objectShader.setFloat("material.shininess", 64.0f);
 		
 		objectShader.setFloat("light.constant", 1.0f);
-		objectShader.setFloat("light.linear", 0.09f);
-		objectShader.setFloat("light.quadratic", 0.032f);
+		objectShader.setFloat("light.linear", 0.0045f);
+		objectShader.setFloat("light.quadratic", 0.0075f);
 
 		objectShader.setVec3("light.position", ourCamera.cameraPosition);
 		objectShader.setVec3("light.direction", ourCamera.cameraDirection);
 		objectShader.setFloat("light.cutoff", glm::cos(glm::radians(12.5f)));
+		objectShader.setFloat("light.outerCutoff", glm::cos(glm::radians(20.5f)));
 
-		objectShader.setVec3("light.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
+		objectShader.setVec3("light.ambient", glm::vec3(0.2f, 0.2f, 0.2f));
 		objectShader.setVec3("light.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
 		objectShader.setVec3("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
+
+		objectShader.setBool("isOn", isOn);
 
 		//	VIEW MATRIX
 		glm::mat4 view{ glm::mat4(1.0f) };
@@ -244,8 +251,6 @@ int main()
 		{
 			glm::mat4 model{ glm::mat4(1.0f) };
 			model = glm::translate(model, cubePositions[i]);
-			float rotate = 20.0f * i;
-			//model = glm::rotate(model, glm::radians(rotate), cubePositions[i]);
 			objectShader.setMat4("u_model", model);
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 		}
@@ -357,4 +362,12 @@ void cursorCallback(GLFWwindow* window, double xpos, double ypos)
 	lastY = yPos;
 
 	ourCamera.setDirection(xoffset, yoffset, true);
+}
+
+void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	if (key == GLFW_KEY_F && action == GLFW_PRESS)
+	{
+		isOn = !isOn;
+	}
 }
