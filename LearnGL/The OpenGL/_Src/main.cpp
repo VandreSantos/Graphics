@@ -15,6 +15,7 @@
 
 	 -	PRODUTO ESCALAR
 	 -	REFLEXÃO
+	 -	KEYCALLBACK VS GETKEY
 */
 
 void resizeCallback(GLFWwindow* window, int width, int height);
@@ -22,6 +23,7 @@ void userInputs(GLFWwindow* window);
 void scrollCallback(GLFWwindow* window, double xoffset, double yoffset);
 void cursorCallback(GLFWwindow* window, double xpos, double ypos);
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+
 
 constexpr int width{ 800 };
 constexpr int height{ 600 };
@@ -199,36 +201,42 @@ int main()
 		glEnable(GL_DEPTH_TEST);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		/*
+			╦╦  ╦ ╦╔╦╗╦╔╗╔╔═╗╔╦╗╦╔═╗╔╗╔
+			║║  ║ ║║║║║║║║╠═╣ ║ ║║ ║║║║
+			╩╩═╝╚═╝╩ ╩╩╝╚╝╩ ╩ ╩ ╩╚═╝╝╚╝
+		*/
+
+		objectShader.use();
+		objectShader.setBool("isOn", isOn);
+
+		//	INFORMAÇÕES DA ILUMINAÇÃO
+		objectShader.setVec3("light.position", ourCamera.cameraPosition);
+		objectShader.setVec3("light.direction", ourCamera.cameraDirection);
+		objectShader.setVec3("light.color", lightColor);
+		
+		objectShader.setInt("material.diffuseColor", 0);
+		objectShader.setInt("material.specularColor", 1);
+		objectShader.setFloat("material.shininess", 64.0f);
+
+		//	INTENSIDADE DA ILUMINAÇÃO
+		objectShader.setVec3("light.aIntense", glm::vec3(0.2f, 0.2f, 0.2f));
+		objectShader.setVec3("light.dIntense", glm::vec3(1.0f, 1.0f, 1.0f));
+		objectShader.setVec3("light.sIntense", glm::vec3(1.0f, 1.0f, 1.0f));
+		
+		//	COEFICIENTES DE CÁLCULOS
+		objectShader.setFloat("light.constant", 1.0f);
+		objectShader.setFloat("light.linear", 0.0045f);
+		objectShader.setFloat("light.quadratic", 0.0075f);
+
+		objectShader.setFloat("light.innerCutoff", glm::cos(glm::radians(12.5f)));
+		objectShader.setFloat("light.outerCutoff", glm::cos(glm::radians(20.5f)));
 
 		/*
 			╔═╗╔╗  ╦╔═╗╔═╗╔╦╗
 			║ ║╠╩╗ ║║╣ ║   ║
 			╚═╝╚═╝╚╝╚═╝╚═╝ ╩
 		*/
-		objectShader.use();
-
-		objectShader.setVec3("u_camPos", ourCamera.cameraPosition);
-		objectShader.setVec3("u_lightColor", lightColor);
-		
-		objectShader.setInt("material.diffuseColor", 0);
-		objectShader.setInt("material.specularColor", 1);
-		objectShader.setFloat("material.shininess", 64.0f);
-		
-		objectShader.setFloat("light.constant", 1.0f);
-		objectShader.setFloat("light.linear", 0.0045f);
-		objectShader.setFloat("light.quadratic", 0.0075f);
-
-		objectShader.setVec3("light.position", ourCamera.cameraPosition);
-		objectShader.setVec3("light.direction", ourCamera.cameraDirection);
-		objectShader.setFloat("light.cutoff", glm::cos(glm::radians(12.5f)));
-		objectShader.setFloat("light.outerCutoff", glm::cos(glm::radians(20.5f)));
-
-		objectShader.setVec3("light.ambient", glm::vec3(0.2f, 0.2f, 0.2f));
-		objectShader.setVec3("light.diffuse", glm::vec3(1.0f, 1.0f, 1.0f));
-		objectShader.setVec3("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
-
-		objectShader.setBool("isOn", isOn);
-
 		//	VIEW MATRIX
 		glm::mat4 view{ glm::mat4(1.0f) };
 		view = ourCamera.getView();
@@ -256,9 +264,9 @@ int main()
 		}
 
 		/*
-			╦  ╦╔═╗╦ ╦╔╦╗
-			║  ║║ ╦╠═╣ ║
-			╩═╝╩╚═╝╩ ╩ ╩
+			╦  ╦╔═╗╦ ╦╔╦╗  ╔═╗╔╗  ╦╔═╗╔═╗╔╦╗
+			║  ║║ ╦╠═╣ ║   ║ ║╠╩╗ ║║╣ ║   ║
+			╩═╝╩╚═╝╩ ╩ ╩   ╚═╝╚═╝╚╝╚═╝╚═╝ ╩
 		*/
 		lightShader.use();
 		glBindVertexArray(lightVAO);
