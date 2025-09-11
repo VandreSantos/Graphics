@@ -36,8 +36,6 @@ float deltaTime{};
 glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
 glm::vec3 lightColor = glm::vec3(1.0f, 1.0f, 1.0f);
 
-bool isOn{true};
-
 Camera ourCamera(glm::vec3(0.0f, 1.0f, 3.0f), -20.0f);
 
 int main()
@@ -61,8 +59,6 @@ int main()
 	glfwSetScrollCallback(window, scrollCallback);
 	glfwSetCursorPosCallback(window, cursorCallback);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-	glfwSetKeyCallback(window, keyCallback);
-
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
@@ -208,13 +204,12 @@ int main()
 		*/
 
 		objectShader.use();
-		objectShader.setBool("isOn", isOn);
 
 		//	INFORMAÇÕES DA ILUMINAÇÃO
 		objectShader.setVec3("light.position", ourCamera.cameraPosition);
 		objectShader.setVec3("light.direction", ourCamera.cameraDirection);
 		objectShader.setVec3("light.color", lightColor);
-		
+
 		objectShader.setInt("material.diffuseColor", 0);
 		objectShader.setInt("material.specularColor", 1);
 		objectShader.setFloat("material.shininess", 64.0f);
@@ -370,12 +365,4 @@ void cursorCallback(GLFWwindow* window, double xpos, double ypos)
 	lastY = yPos;
 
 	ourCamera.setDirection(xoffset, yoffset, true);
-}
-
-void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-	if (key == GLFW_KEY_F && action == GLFW_PRESS)
-	{
-		isOn = !isOn;
-	}
 }
