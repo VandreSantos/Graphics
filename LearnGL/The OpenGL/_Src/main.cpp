@@ -203,9 +203,6 @@ int main()
 
 		objectShader.use();
 
-		//	INFORMAÇÕES DA ILUMINAÇÃO
-		objectShader.setVec3("light.color", lightColor);
-		objectShader.setVec3("light.position", lightPos);
 		objectShader.setVec3("camera.position", ourCamera.cameraPosition);
 		objectShader.setVec3("camera.direction", ourCamera.cameraDirection);
 
@@ -213,10 +210,19 @@ int main()
 		objectShader.setInt("material.specularColor", 1);
 		objectShader.setFloat("material.shininess", 64.0f);
 
-		//	INTENSIDADE DA ILUMINAÇÃO
-		objectShader.setVec3("light.aIntense", glm::vec3(0.2f, 0.2f, 0.2f));
-		objectShader.setVec3("light.dIntense", glm::vec3(1.0f, 1.0f, 1.0f));
-		objectShader.setVec3("light.sIntense", glm::vec3(1.0f, 1.0f, 1.0f));
+		//	COMPONENTES DA LUZ DIRECIONAL
+		objectShader.setVec3("dirlight.color", lightColor);
+		objectShader.setVec3("dirlight.direction", glm::vec3(0.0f, -1.0f, 0.0f));
+		objectShader.setVec3("dirlight.aIntense", glm::vec3(0.2f, 0.2f, 0.2f));
+		objectShader.setVec3("dirlight.dIntense", glm::vec3(1.0f, 1.0f, 1.0f));
+		objectShader.setVec3("dirlight.sIntense", glm::vec3(1.0f, 1.0f, 1.0f));
+
+		//	COMPONENTES DA LUZ PONTUAL
+		objectShader.setVec3("pointlight.color", lightColor);
+		objectShader.setVec3("pointlight.position", lightPos);
+		objectShader.setVec3("pointlight.aIntense", glm::vec3(0.2f, 0.2f, 0.2f));
+		objectShader.setVec3("pointlight.dIntense", glm::vec3(1.0f, 1.0f, 1.0f));
+		objectShader.setVec3("pointlight.sIntense", glm::vec3(1.0f, 1.0f, 1.0f));
 
 		/*
 			╔═╗╔╗  ╦╔═╗╔═╗╔╦╗
@@ -241,7 +247,7 @@ int main()
 
 		//	MODEL MATRIX
 		glBindVertexArray(objectVAO);
-		for (int i = 0; i < 1; i++) // 10
+		for (int i = 0; i < 10; i++) // 10
 		{
 			glm::mat4 model{ glm::mat4(1.0f) };
 			model = glm::translate(model, cubePositions[i]);
@@ -265,7 +271,7 @@ int main()
 		lightShader.setMat4("u_projection", projection);
 		lightShader.setVec3("u_lightColor", lightColor);
 
-		//glDrawArrays(GL_TRIANGLES, 0, 36);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//	Procedimentos da janela
 		glfwSwapBuffers(window);
@@ -311,7 +317,7 @@ void userInputs(GLFWwindow* window)
 		ourCamera.setMovement(LEFT, deltaTime);
 	}
 
-	float lightSpeed{ 0.01f };
+	float lightSpeed{ 0.005f };
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 	{
 		lightPos.z -= lightSpeed;

@@ -5,6 +5,15 @@ in vec3 Normal;
 in vec3 FragPos;
 in vec2 TexCoord;
 
+/*
+	╔═╗╔═╗╔═╗╔╗╔╔╦╗╔═╗
+	╠═╣║ ╦║╣ ║║║ ║║╠═╣
+	╩ ╩╚═╝╚═╝╝╚╝═╩╝╩ ╩
+	- NORMAL E LIGHTDIR COMO PARAMETRO
+	- PORQUE VIEWDIR É DA CAMERA ATÉ O FRAGMENTO
+	- PORQUE NO CALCULO SPECULAR, A POTENCIAÇÃO VEM PRIMEIRO
+*/
+
 struct Material
 {
 	sampler2D diffuseColor;
@@ -12,7 +21,23 @@ struct Material
 	float shininess;
 };
 
-struct Light
+struct Camera
+{
+	vec3 position;
+	vec3 direction;
+};
+
+struct dirLight
+{
+	vec3 direction;
+	vec3 color;
+	
+	vec3 aIntense;
+	vec3 dIntense;
+	vec3 sIntense;
+};
+
+struct pointLight
 {
 	vec3 position;
 	vec3 color;
@@ -22,32 +47,53 @@ struct Light
 	vec3 sIntense;
 };
 
-struct Camera
-{
-	vec3 position;
-	vec3 direction;
-};
+vec3 iDirectional(dirLight light);
+vec3 iPoint(pointLight light);
 
 uniform Material material;
-uniform Light light;
 uniform Camera camera;
+uniform dirLight dirlight;
+uniform pointLight pointlight;
 
 void main()
 {
-	//	AMBIENT LIGHTING
-	vec3 ambient = light.color * light.aIntense * vec3(texture(material.diffuseColor, TexCoord));
+	vec3 result = vec3(0.0);
 	
-	//	DIFFUSE LIGHTING
-	vec3 normal = normalize(Normal);
-	vec3 lightDir = normalize(light.position - FragPos);
-	float iDiffuse = max(dot(normal, lightDir), 0.0);
-	vec3 diffuse = (light.dIntense * light.color) * (iDiffuse * vec3(texture(material.diffuseColor, TexCoord)));
-	
-	vec3 result = (ambient + diffuse);
+	result += iDirectional(dirlight);
+	result += iPoint(pointlight);
 	FragColor = vec4(result, 1.0);
 }
 
+vec3 iDirectional(dirLight light)
+{
+	vec3 lightDir = normalize(-light.direction);
+	vec3 normal = normalize(Normal);
+	float iDiffuse = max(dot(normal, lightDir), 0.0);
+	
+	vec3 reflectDir = reflect(lightDir, normal);
+	vec3 viewDir = normalize(FragPos - camera.position);
+	float iSpecular = pow(max(dot(reflectDir, viewDir), 0.0), material.shininess);
+	
+	vec3 ambient = (light.aIntense * light.color) * vec3(texture(material.diffuseColor, TexCoord));
+	vec3 diffuse = (light.dIntense * light.color) * (iDiffuse * vec3(texture(material.diffuseColor, TexCoord)));
+	vec3 specular = (light.sIntense * light.color) * (iSpecular * vec3(texture(material.specularColor, TexCoord)));
+	
+	return (ambient + diffuse + specular);
+}
 
-/*
-	O cálculo de iluminação difusa gera um float que varia de 0 a 1 dependendo da posição da luz, isso porque esse valor é obtido através do cosseno do ângulo entre o vetor de direção da luz, e o vetor normal de cada fragmento, que obtemos através do produto escalar (dot()), dessa forma, se o o ângulo desses vetores forem paralelos, ou seja, 0 graus, o cosseno resulta em 1.0, (assumimos a iluminação máxima, pois o vetor da luz esta alinhado com a direção do fragmento), se o angulo for perpendicular (90 graus), então o cosseno retorna 0.0 (assumindo que a luz não tem contato nenhum com o fragmento). Então conseguimos, a partir dai, multiplicar esse valor pelo vetor de cor do objeto.
-*/
+vec3 iPoint(pointLight light)
+{
+	vec3 lightDir = normalize(light.position - FragPos);	
+	vec3 normal = normalize(Normal);
+	float iDiffuse = max(dot(normal, lightDir), 0.0);
+	
+	vec3 reflectDir = reflect(lightDir, normal);
+	vec3 viewDir = normalize(FragPos - camera.position );
+	float iSpecular = pow(max(dot(reflectDir, viewDir), 0.0), material.shininess);
+	
+	vec3 ambient = (light.aIntense * light.color) * vec3(texture(material.diffuseColor, TexCoord));
+	vec3 diffuse = (light.dIntense * light.color) * (iDiffuse * vec3(texture(material.diffuseColor, TexCoord)));
+	vec3 specular = (light.sIntense * light.color) * (iSpecular * vec3(texture(material.specularColor, TexCoord)));
+	
+	return (ambient + diffuse + specular);
+}
