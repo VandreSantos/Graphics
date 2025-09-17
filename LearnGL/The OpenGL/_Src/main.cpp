@@ -34,7 +34,7 @@ float deltaTime{};
 glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
 glm::vec3 lightColor = glm::vec3(1.0f, 1.0f, 1.0f);
 
-Camera ourCamera(glm::vec3(0.0f, 1.0f, 3.0f), -20.0f);
+Camera ourCamera(glm::vec3(0.0f, 1.0f, 3.0f), 0.0f);
 
 int main()
 {
@@ -213,16 +213,32 @@ int main()
 		//	COMPONENTES DA LUZ DIRECIONAL
 		objectShader.setVec3("dirlight.color", lightColor);
 		objectShader.setVec3("dirlight.direction", glm::vec3(0.0f, -1.0f, 0.0f));
-		objectShader.setVec3("dirlight.aIntense", glm::vec3(0.2f, 0.2f, 0.2f));
+		objectShader.setVec3("dirlight.aIntense", glm::vec3(0.1f, 0.1f, 0.1f));
 		objectShader.setVec3("dirlight.dIntense", glm::vec3(1.0f, 1.0f, 1.0f));
 		objectShader.setVec3("dirlight.sIntense", glm::vec3(1.0f, 1.0f, 1.0f));
 
 		//	COMPONENTES DA LUZ PONTUAL
 		objectShader.setVec3("pointlight.color", lightColor);
 		objectShader.setVec3("pointlight.position", lightPos);
-		objectShader.setVec3("pointlight.aIntense", glm::vec3(0.2f, 0.2f, 0.2f));
+		objectShader.setVec3("pointlight.aIntense", glm::vec3(0.1f, 0.1f, 0.1f));
 		objectShader.setVec3("pointlight.dIntense", glm::vec3(1.0f, 1.0f, 1.0f));
 		objectShader.setVec3("pointlight.sIntense", glm::vec3(1.0f, 1.0f, 1.0f));
+		objectShader.setFloat("pointlight.constant", 1.0f);
+		objectShader.setFloat("pointlight.linear", 0.09f);
+		objectShader.setFloat("pointlight.quadratic", 0.032f);
+
+		//	COMPONENTES DO HOLOFOTE
+		objectShader.setVec3("spotlight.color", lightColor);
+		objectShader.setVec3("spotlight.position", lightPos);
+		objectShader.setVec3("spotlight.direction", ourCamera.cameraDirection);
+		objectShader.setVec3("spotlight.aIntense", glm::vec3(0.1f, 0.1f, 0.1f));
+		objectShader.setVec3("spotlight.dIntense", glm::vec3(1.0f, 1.0f, 1.0f));
+		objectShader.setVec3("spotlight.sIntense", glm::vec3(1.0f, 1.0f, 1.0f));
+		objectShader.setFloat("spotlight.constant", 1.0f);
+		objectShader.setFloat("spotlight.linear", 0.045f);
+		objectShader.setFloat("spotlight.quadratic", 0.0075f);
+		objectShader.setFloat("spotlight.innerCutoff", cos(glm::radians(15.0f)));
+		objectShader.setFloat("spotlight.outerCutoff", cos(glm::radians(20.0f)));
 
 		/*
 			╔═╗╔╗  ╦╔═╗╔═╗╔╦╗
@@ -317,7 +333,7 @@ void userInputs(GLFWwindow* window)
 		ourCamera.setMovement(LEFT, deltaTime);
 	}
 
-	float lightSpeed{ 0.005f };
+	float lightSpeed{ 5.0f * deltaTime};
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 	{
 		lightPos.z -= lightSpeed;

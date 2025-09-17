@@ -45,22 +45,49 @@ struct pointLight
 	vec3 aIntense;
 	vec3 dIntense;
 	vec3 sIntense;
+	
+	float constant;
+	float linear;
+	float quadratic;
+};
+
+struct spotLight
+{
+	vec3 position;
+	vec3 direction;
+	vec3 color;
+	
+	vec3 aIntense;
+	vec3 dIntense;
+	vec3 sIntense;
+	
+	float constant;
+	float linear;
+	float quadratic;
+	
+	float innerCutoff;
+	float outerCutoff;
 };
 
 vec3 iDirectional(dirLight light);
 vec3 iPoint(pointLight light);
+vec3 iSpot(spotLight light);
 
 uniform Material material;
 uniform Camera camera;
+
 uniform dirLight dirlight;
 uniform pointLight pointlight;
+uniform spotLight spotlight;
 
 void main()
 {
 	vec3 result = vec3(0.0);
 	
-	result += iDirectional(dirlight);
+	//result += iDirectional(dirlight);
 	result += iPoint(pointlight);
+	//result += iSpot(spotlight);
+	
 	FragColor = vec4(result, 1.0);
 }
 
@@ -94,6 +121,41 @@ vec3 iPoint(pointLight light)
 	vec3 ambient = (light.aIntense * light.color) * vec3(texture(material.diffuseColor, TexCoord));
 	vec3 diffuse = (light.dIntense * light.color) * (iDiffuse * vec3(texture(material.diffuseColor, TexCoord)));
 	vec3 specular = (light.sIntense * light.color) * (iSpecular * vec3(texture(material.specularColor, TexCoord)));
+	
+	float distance = length(light.position - FragPos);
+	float attenuation = 1.0 / (light.constant + light.linear * distance + light.quadratic * (distance * distance));
+	ambient *= attenuation;
+	diffuse *= attenuation;
+	specular *= attenuation;
+	
+	return (ambient + diffuse + specular);
+}
+
+vec3 iSpot(spotLight light)
+{
+	vec3 lightDir = normalize(camera.position - FragPos);	
+	vec3 normal = normalize(Normal);
+	float iDiffuse = max(dot(normal, lightDir), 0.0);
+	
+	vec3 reflectDir = reflect(lightDir, normal);
+	vec3 viewDir = normalize(FragPos - camera.position );
+	float iSpecular = pow(max(dot(reflectDir, viewDir), 0.0), material.shininess);
+	
+	vec3 ambient = (light.aIntense * light.color) * vec3(texture(material.diffuseColor, TexCoord));
+	vec3 diffuse = (light.dIntense * light.color) * (iDiffuse * vec3(texture(material.diffuseColor, TexCoord)));
+	vec3 specular = (light.sIntense * light.color) * (iSpecular * vec3(texture(material.specularColor, TexCoord)));
+	
+	float distance = length(camera.position - FragPos);
+	float attenuation = 1.0 / (light.constant + light.linear * distance + light.quadratic * (distance * distance));
+	ambient *= attenuation;
+	diffuse *= attenuation;
+	specular *= attenuation;
+	
+	float theta = dot(lightDir, -light.direction);
+	float epsilon = light.innerCutoff - light.outerCutoff;
+	float intensity = clamp((theta - light.outerCutoff) / epsilon, 0.0, 1.0);
+	diffuse *= intensity;
+	specular *= intensity;
 	
 	return (ambient + diffuse + specular);
 }
